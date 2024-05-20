@@ -1,0 +1,120 @@
+<div *ngIf="!esRutaTuristaProductos()">
+  <!--LISTA DE PRODUCTOS-->
+  <h1>Listado de Productos</h1>
+
+  <div class="mover-button">
+    <button (click)="crearProducto()" class="nuevo-button">
+      Nuevo Producto...
+    </button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio Min</th>
+        <th>Precio Max</th>
+        <th>Categoría</th>
+        <th>Zona</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of producto">
+        <td>{{ producto.idProducto }}</td>
+        <td>{{ producto.nombreProducto }}</td>
+        <td>{{ producto.precioMin }}</td>
+        <td>{{ producto.precioMax }}</td>
+        <td>{{ producto.categoria?.nombreCategoria }}</td>
+        <td>{{ producto.zona?.nombreZona }}</td>
+        <td>
+          <button class="editar-button" *ngIf="!producto.editando" (click)="editarProducto(producto)">Editar</button>
+          <button class="eliminar-button" (click)="borrarProducto(producto)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngFor="let producto of producto">
+    <div *ngIf="producto.editando">
+      <div class="editar-container">
+        <div class="form-group">
+          <label for="nombre">Nombre Producto:</label>
+          <input type="text" class="form-control" id="nombreProducto" name="nombreProducto"
+            [(ngModel)]="producto.nombreProducto" required>
+        </div>
+        <div class="form-group">
+          <label for="preciomin">Precio Min:</label>
+          <input type="number" class="form-control" id="precioMin" name="precioMin" [(ngModel)]="producto.precioMin"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="precioMax">Precio Max:</label>
+          <input type="number" class="form-control" id="precioMax" name="precioMax" [(ngModel)]="producto.precioMax"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="categoria">Categoría:</label>
+          <select class="form-control" id="categoria" name="categoria" [(ngModel)]="producto.categoria" required>
+            <option *ngFor="let cat of categoria" [ngValue]="cat">{{ cat.nombreCategoria }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="zona">Zona:</label>
+          <select class="form-control" id="zona" name="zona" [(ngModel)]="producto.zona" required>
+            <option *ngFor="let zon of zona" [ngValue]="zon">{{ zon.nombreZona }}</option>
+          </select>
+        </div>
+
+        <button *ngIf="producto.editando" class="guardar-button" (click)="guardarProducto(producto)">Guardar</button>
+        <button *ngIf="producto.editando" class="cancelar-button" (click)="cancelarEdicion(producto)">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--PARTE DE TURISTA-->
+
+<div class="principal">
+  <div *ngIf="esRutaTuristaProductos()">
+    <h1>Lista de Productos</h1>
+    <input type="text" style="width: 400px; height: 20px; padding: 15px;" (input)="filtrarPorProducto($event)"
+      placeholder="Buscar producto">
+
+    <table>
+      <thead>
+        <tr>
+          <th (click)="sortData('nombreProducto')">
+            Nombre
+            <span *ngIf="sortColumn === 'nombreProducto'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+          </th>
+          <th (click)="sortData('categoria.nombreCategoria')">
+            Categoría
+            <span *ngIf="sortColumn === 'categoria.nombreCategoria'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+          </th>
+          <th (click)="sortData('precioMin')">
+            Precio Min
+            <span *ngIf="sortColumn === 'precioMin'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+          </th>
+          <th (click)="sortData('precioMax')">
+            Precio Max
+            <span *ngIf="sortColumn === 'precioMax'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+          </th>
+          <th (click)="sortData('zona.nombreZona')">
+            Zona
+            <span *ngIf="sortColumn === 'zona.nombreZona'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of producto">
+          <td>{{ producto.nombreProducto }}</td>
+          <td>{{ producto.categoria?.nombreCategoria }}</td>
+          <td>{{ producto.precioMin }}</td>
+          <td>{{ producto.precioMax }}</td>
+          <td>{{ producto.zona?.nombreZona }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

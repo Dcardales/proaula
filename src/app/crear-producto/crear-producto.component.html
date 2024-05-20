@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Crear Nuevo Producto</h2>
+    <form (ngSubmit)="crearProducto()" #productoForm="ngForm" method="post">
+      <div class="form-group">
+        <label for="nombre">Nombre producto:</label>
+        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" [(ngModel)]="producto.nombreProducto" required>
+      </div>
+      <div class="form-group">
+        <label for="preciomin">Precio Min:</label>
+        <input type="number" class="form-control" id="precioMin" name="precioMin" [(ngModel)]="producto.precioMin" required>
+      </div>
+      <div class="form-group">
+        <label for="precioMax">Precio Max:</label>
+        <input type="number" class="form-control" id="precioMax" name="precioMax" [(ngModel)]="producto.precioMax" required>
+      </div>
+      <div class="form-group">
+        <label for="categoria">Categoría:</label>
+        <select class="form-control" id="categoria" name="categoria" [(ngModel)]="producto.categoria" required>
+          <option *ngFor="let cat of categoria" [ngValue]="cat">{{ cat.nombreCategoria }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="zona">Zona:</label>
+        <select class="form-control" id="zona" name="zona" [(ngModel)]="producto.zona" required>
+          <option *ngFor="let zon of zona" [ngValue]="zon">{{ zon.nombreZona }}</option>
+        </select>
+      </div>
+      <button type="submit" class="guardar-button" [disabled]="productoForm.invalid">Crear Producto</button>
+    </form>
+  </div>

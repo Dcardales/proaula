@@ -1,0 +1,43 @@
+<div>
+    <!--LISTA DE CATEGORIAS-->
+    <h1>Listado de Categorías</h1>
+    <div class="mover-button">
+        <button (click)="crearCategoria()" class="nuevo-button">
+            Nueva Categoría...
+        </button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let categoria of categoria">
+                <td>{{ categoria.idCategoia }}</td>
+                <td>{{ categoria.nombreCategoria }}</td>
+                <td>
+                    <button class="editar-button" *ngIf="!categoria.editando"
+                        (click)="editarCategoria(categoria)">Editar</button>
+                    <button class="eliminar-button" (click)="borrarCategoria(categoria)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngFor="let categoria of categoria">
+        <div *ngIf="categoria.editando">
+            <div class="editar-container">
+                <div class="form-group">
+                    <label for="nombre">Nombre Categoria:</label>
+                    <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria"
+                        [(ngModel)]="categoria.nombreCategoria" required>
+                </div>
+                <button *ngIf="categoria.editando" class="guardar-button" (click)="guardarCategoria(categoria)">Guardar</button>
+                    <button *ngIf="categoria.editando" class="cancelar-button" (click)="cancelarEdicion(categoria)">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

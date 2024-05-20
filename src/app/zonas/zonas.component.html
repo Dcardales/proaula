@@ -1,0 +1,43 @@
+<div>
+    <!--LISTA DE ZONAS-->
+    <h1>Listado de Zonas</h1>
+    <div class="mover-button">
+        <button (click)="crearZona()" class="nuevo-button">
+            Nueva Zona...
+        </button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let zona of zona">
+                <td>{{ zona.idZona }}</td>
+                <td>{{ zona.nombreZona }}</td>
+                <td>
+                    <button class="editar-button" *ngIf="!zona.editando"
+                        (click)="editarZona(zona)">Editar</button>
+                    <button class="eliminar-button" (click)="borrarZona(zona)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngFor="let zona of zona">
+        <div *ngIf="zona.editando">
+            <div class="editar-container">
+                <div class="form-group">
+                    <label for="nombre">Nombre Zona:</label>
+                    <input type="text" class="form-control" id="nombreZona" name="nombreZona"
+                        [(ngModel)]="zona.nombreZona" required>
+                </div>
+                <button *ngIf="zona.editando" class="guardar-button" (click)="guardarZona(zona)">Guardar</button>
+                    <button *ngIf="zona.editando" class="cancelar-button" (click)="cancelarEdicion(zona)">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

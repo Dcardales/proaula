@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Crear Nueva Zona</h2>
+    <form (ngSubmit)="crearZona()" #zonaForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre Zona:</label>
+        <input type="text" class="form-control" id="nombreZona" name="nombreZona" [(ngModel)]="zona.nombreZona" required>
+      </div>
+      <button type="submit" class="guardar-button" [disabled]="zonaForm.invalid">Crear Zona</button>
+    </form>
+  </div>

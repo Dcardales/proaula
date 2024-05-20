@@ -1,0 +1,199 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: auto; 
+    margin-right: 0; 
+    margin-top: 50px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .crud-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff;
+    width: 200px;
+  }
+  
+  .crud-container h2 {
+    margin-top: 0;
+  }
+  
+  .crud-container p {
+    margin: 5px 0;
+  }
+  
+  .crud-container button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .crud-container button:first-of-type {
+    background-color: #4CAF50;
+  }
+  
+  .crud-container button:nth-of-type(2) {
+    background-color: #2196F3;
+  }
+  
+  .crud-container button:last-of-type {
+    background-color: #f44336;
+  }
+
+  .editar-button {
+    background-color: #2196F3; 
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  
+  .eliminar-button {
+    background-color: #f44336; 
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  
+  .guardar-button,
+  .cancelar-button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: 50px;
+  }
+  
+  .guardar-button:hover,
+  .cancelar-button:hover {
+    background-color: #45a049; 
+  }
+
+  .nuevo-button{
+
+    background-color: #00b953; 
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+     left: 210px; 
+     margin-top: -10px; 
+  }
+  .form-group {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    width: calc(33.3% - 20px);
+    box-sizing: border-box; 
+}
+
+.form-group select {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+
+}
+  
+  label {
+    display: block; 
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-right: 20px;
+    width: 50%;
+  }
+
+  
+  .principal {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.principal h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.principal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.principal thead {
+    background-color: #e0e0e0;
+}
+
+.principal th, .principal td {
+    padding: 15px;
+    text-align: left;
+}
+
+.principal th {
+    cursor: pointer;
+}
+
+.principal tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.principal tbody tr:hover {
+    background-color: #ddd;
+}
+
+.principal th, .principal td {
+    border-bottom: 1px solid #ddd;
+}
+
+.principal th:first-child, .principal td:first-child {
+    text-align: center;
+}

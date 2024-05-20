@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Crear Nueva Categoría</h2>
+    <form (ngSubmit)="crearCategoria()" #categoriaForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre Categoria:</label>
+        <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria" [(ngModel)]="categoria.nombreCategoria" required>
+      </div>
+      <button type="submit" class="guardar-button" [disabled]="categoriaForm.invalid">Crear Categoría</button>
+    </form>
+  </div>

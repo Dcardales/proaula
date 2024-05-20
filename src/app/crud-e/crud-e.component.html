@@ -1,0 +1,58 @@
+<div class="contenido-principal">
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-toggle" (click)="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </div>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <div class="logo">
+          <p><b>CORRALITO</b></p>
+          <div class="panel">
+            <p>Panel Ente Regulador</p>
+        </div>
+        </div>
+        
+        <!--DASHBOARD - INICIO-->
+        <nav>   
+          <ul>
+            <li>
+              <a routerLink="/panel-ente">
+                <i class="fas fa-home menu-icon"></i>
+            <span class="menu-text">Dashboard</span>
+              </a>
+            </li>
+    
+            <li>
+              <!--ENTE-->
+              <a (click)="verProductos()">
+                <i class="fas fa-shopping-basket menu-icon"></i>
+                <span class="menu-text">Productos</span>
+              </a>
+              <a (click)="verZonas()">
+                <i class="fas fa-map-marker-alt menu-icon"></i>
+                <span class="menu-text">Zonas</span>
+     
+              </a>
+              <a (click)="verCategorias()">
+                <i class="fas fa-tags menu-icon"></i>
+                <span class="menu-text">Categorías</span>
+                
+              </a>
+              <div class="salir-boton"> 
+                <a routerLink="/">
+                  <i class="fas fa-sign-out-alt"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+    </div>
+
+    <div class="content" [ngClass]="{'collapsed': isSidebarCollapsed}">
+      <router-outlet></router-outlet>
+    </div>
+</div>
+
+<div class="panel-ente" [ngStyle]="{'background-image': showBackgroundImage ? 'url(https://www.geckoboard.com/uploads/finance-dashboard-example.png)' : 'none'}"></div>
+
+            
